@@ -5,9 +5,7 @@ Defines the three quantum error-correcting codes used in the project:
 - Steane code [[7,1,3]] 
 
 Every Pauli operator (stabilizer generator, logical operator, physical error)
-is represented in the binary form  P = (x, z),  x, z in {0,1}^n,
-meaning P = i^(x.z) * prod_k X_k^{x_k} Z_k^{z_k}   (phases are irrelevant here,
-we only ever need commutation relations and group membership).
+is represented in the binary form  P = (x, z),  x, z in {0,1}^n
 
 Two Paulis (x1,z1), (x2,z2) commute  <=>  (x1.z2 + z1.x2) mod 2 == 0.
 
@@ -15,7 +13,7 @@ For each code we build:
   - stabilizer generators (list of (x,z) vectors)
   - logical X-bar, Z-bar representatives
   - a syndrome -> correction lookup table, built by enumerating all weight-1
-    (single physical qubit) Pauli errors that are consistent with the code's
+    single-qubit Pauli errors that are consistent with the code's
     error-correction claims (stabilizer-based decoding for the 5-qubit code,
     classical-Hamming lookup-table decoding for the Steane code, majority-vote
     lookup-table decoding for the repetition code).
